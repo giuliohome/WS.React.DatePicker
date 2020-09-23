@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SPA</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://unpkg.com/react-datepicker@0.53.0/dist/react-datepicker.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="Content/SPA.css" />
+    <style>
+        /* Don't show the not-yet-loaded templates */
+        [ws-template], [ws-children-template] { display: none; }
+    </style>
+
+    <script type="text/javascript" src="Content/SPA.head.js"></script>
+</head>
+<body>
+    <h1>My list of unique people</h1>
+    <div id="main" ws-children-template="Main">
+        <ul ws-hole="ListContainer">
+            <li ws-template="ListItem">${Name}</li>
+        </ul>
+        <div>
+            <input ws-var="Name" placeholder="Name" />
+            <button ws-onclick="Add">Add</button>
+            <div>You are about to add: ${Name}</div>
+        </div>
+    </div>
+    <div id="mainUI"></div>
+
+
+    <script type="text/javascript" type="module" src="Content/SPA.js"></script>
+
+    <noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div>
+
+    <script src="https://unpkg.com/moment@2.14.1/moment.js"></script>
+    <script src="https://unpkg.com/react-onclickoutside@6.9.0/dist/react-onclickoutside.min.js"></script>
+    <script src="https://unpkg.com/react-datepicker@0.53.0/dist/react-datepicker.js"></script>
+
+
+    <!--
+
+
+    <script src="/Content/static/js/2.e5b766a9.chunk.js"></script>
+    <script src="/Content/static/js/main.cd7d6407.chunk.js"></script>
+
+    <script type="text/javascript" src="Content/node_modules/react/umd/react.development.js"></script>
+    <script type="text/javascript" src="Content/node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script type="text/javascript" src="Content/node_modules/react-datepicker/dist/react-datepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="Content/node_modules/react-datepicker/dist/react-datepicker.css" />
+
+        -->
+</body>
+</html>
