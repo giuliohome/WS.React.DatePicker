@@ -66,10 +66,10 @@ namespace ReactHook
             let count, setCount = React.UseState 0
             let myDate, setMyDate = React.UseState DateTime.Today.JS
             
-            let datePicker = new ReactDatePicker()
+            let datePickerImport = "DatePicker" // (new ReactDatePicker()).DatePicker
            
             let datePicker =
-                React.CreateElement ( datePicker.DatePicker, //"DatePicker", //"react-datepicker" , 
+                React.CreateElement ( datePickerImport, //"DatePicker", //"react-datepicker" , 
                             {
                                 selected = myDate 
                                 onChange = setMyDate 

@@ -363,10 +363,11 @@ if(!p.closest){p.closest=function(s){var e=this;while(e&&e.nodeType==1){if(e.mat
         };
 }());
 ;
+import { DatePicker } from "https://unpkg.com/react-datepicker@0.53.0/dist/react-datepicker.js"
 (function()
 {
  "use strict";
- var Global,SPA,Client,WebSharper,Obj,UI,Var$1,Operators,Templating,Runtime,Server,TemplateInstance,Arrays,ProviderBuilder,ListModel,Unchecked,SPA_Templates,Handler,Var,ReactHook,React,HelloWorld,React$1,ReactModule,View,ConcreteVar,Snap,System,Guid,Collections,List,SC$1,Client$1,Templates,Doc,JavaScript,Pervasives,AttrProxy,Html,Utils,UIBase,MyVars,Abbrev,Fresh,Dictionary,Object,CheckedInput,Numeric,HashSet,Seq,TemplateInitializer,EventTarget,Node,JS,Attrs,DomUtility,DictionaryUtil,Enumerator,T,SC$2,WindowOrWorkerGlobalScope,Docs,DateUtil,SC$3,DocElemNode,CharacterData,Storage,Elt,Prepare,Slice,KeyCollection,An,Settings,Mailbox,Array,Attrs$1,Dyn,ArrayStorage,AttrModule,List$1,T$1,Strings,Updates,ValueCollection,Docs$1,RunState,NodeSet,Concurrency,Anims,SC$4,Queue,HashSetUtil,BindVar,SC$5,SC$6,AppendList,SC$7,DynamicAttrNode,Scheduler,Easing,AsyncBody,SC$8,CT,HashSet$1,String,CancellationTokenSource,DomNodes,Char,Error,OperationCanceledException,Lazy,SC$9,LazyExtensionsProxy,LazyRecord,ReactDOM,IntelliFactory,Runtime$1,React$2,Date,console,Math;
+ var Global,SPA,Client,WebSharper,Obj,UI,Var$1,Operators,Templating,Runtime,Server,TemplateInstance,Arrays,ProviderBuilder,ListModel,Unchecked,SPA_Templates,Handler,Var,ReactHook,React,HelloWorld,React$1,ReactModule,View,ConcreteVar,Snap,System,Guid,Collections,List,SC$1,Client$1,Templates,Doc,JavaScript,Pervasives,AttrProxy,Html,Utils,UIBase,MyVars,DatePicker$1,DatePickerLibrary,ReactDatePicker,Abbrev,Fresh,Dictionary,Object,CheckedInput,Numeric,HashSet,Seq,TemplateInitializer,EventTarget,Node,JS,Attrs,DomUtility,DictionaryUtil,Enumerator,T,SC$2,WindowOrWorkerGlobalScope,Docs,DateUtil,SC$3,DocElemNode,CharacterData,Storage,Elt,Prepare,Slice,KeyCollection,An,Settings,Mailbox,Array,Attrs$1,Dyn,ArrayStorage,AttrModule,List$1,T$1,Strings,Updates,ValueCollection,Docs$1,RunState,NodeSet,Concurrency,Anims,SC$4,Queue,HashSetUtil,BindVar,SC$5,SC$6,AppendList,SC$7,DynamicAttrNode,Scheduler,Easing,AsyncBody,SC$8,CT,HashSet$1,String,CancellationTokenSource,DomNodes,Char,Error,OperationCanceledException,Lazy,SC$9,LazyExtensionsProxy,LazyRecord,ReactDOM,IntelliFactory,Runtime$1,React$2,Date,console,Math;
  Global=self;
  SPA=Global.SPA=Global.SPA||{};
  Client=SPA.Client=SPA.Client||{};
@@ -409,6 +410,9 @@ if(!p.closest){p.closest=function(s){var e=this;while(e&&e.nodeType==1){if(e.mat
  Utils=WebSharper.Utils=WebSharper.Utils||{};
  UIBase=Global.UIBase=Global.UIBase||{};
  MyVars=UIBase.MyVars=UIBase.MyVars||{};
+ DatePicker$1=Global.DatePicker=Global.DatePicker||{};
+ DatePickerLibrary=DatePicker$1.DatePickerLibrary=DatePicker$1.DatePickerLibrary||{};
+ ReactDatePicker=DatePickerLibrary.ReactDatePicker=DatePickerLibrary.ReactDatePicker||{};
  Abbrev=UI.Abbrev=UI.Abbrev||{};
  Fresh=Abbrev.Fresh=Abbrev.Fresh||{};
  Dictionary=Collections.Dictionary=Collections.Dictionary||{};
@@ -987,7 +991,7 @@ if(!p.closest){p.closest=function(s){var e=this;while(e&&e.nodeType==1){if(e.mat
   count=p[0];
   p$1=React$2.useState(new Global.Date((c=Date.now(),DateUtil.DatePortion(c))));
   myDate=p$1[0];
-  datePicker=React$2.createElement("DatePicker",{
+  datePicker=React$2.createElement((new ReactDatePicker.New(),DatePicker),{
    selected:myDate,
    onChange:p$1[1]
   });
@@ -2376,6 +2380,11 @@ if(!p.closest){p.closest=function(s){var e=this;while(e&&e.nodeType==1){if(e.mat
   SC$1.$cctor();
   return SC$1.count;
  };
+ ReactDatePicker=DatePickerLibrary.ReactDatePicker=Runtime$1.Class({},Obj,ReactDatePicker);
+ ReactDatePicker.New=Runtime$1.Ctor(function()
+ {
+  Obj.New.call(this);
+ },ReactDatePicker);
  Fresh.Int=function()
  {
   Fresh.set_counter(Fresh.counter()+1);
