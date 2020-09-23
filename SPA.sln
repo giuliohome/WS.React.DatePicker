@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.757
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SPA", "SPA\SPA.fsproj", "{43D31933-6319-4DF2-8965-F89BDDEE8427}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "DatePicker", "DatePicker\DatePicker.fsproj", "{795287EE-EA5D-46F0-A5AB-ED43013C9D3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43D31933-6319-4DF2-8965-F89BDDEE8427}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43D31933-6319-4DF2-8965-F89BDDEE8427}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43D31933-6319-4DF2-8965-F89BDDEE8427}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43D31933-6319-4DF2-8965-F89BDDEE8427}.Release|Any CPU.Build.0 = Release|Any CPU
+		{795287EE-EA5D-46F0-A5AB-ED43013C9D3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{795287EE-EA5D-46F0-A5AB-ED43013C9D3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{795287EE-EA5D-46F0-A5AB-ED43013C9D3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{795287EE-EA5D-46F0-A5AB-ED43013C9D3A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BBE36120-DC2C-43A4-BC11-70CE6F39FF55}
+	EndGlobalSection
+EndGlobal
