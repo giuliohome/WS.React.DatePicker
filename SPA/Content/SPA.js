@@ -17,7 +17,7 @@
 // permissions and limitations under the License.
 //
 // $end{copyright}
-
+//import {DatePicker} from "https://unpkg.com/react-datepicker@0.53.0/dist/react-datepicker.js"
 IntelliFactory = {
     Runtime: {
         Ctor: function (ctor, typeFunction) {
@@ -363,10 +363,11 @@ if(!p.closest){p.closest=function(s){var e=this;while(e&&e.nodeType==1){if(e.mat
         };
 }());
 ;
+
 (function()
 {
  "use strict";
- var Global,SPA,Client,WebSharper,Obj,UI,Var$1,Operators,Templating,Runtime,Server,TemplateInstance,Arrays,ProviderBuilder,ListModel,Unchecked,SPA_Templates,Handler,Var,ReactHook,React,HelloWorld,React$1,ReactModule,View,ConcreteVar,Snap,System,Guid,Collections,List,SC$1,Client$1,Templates,Doc,JavaScript,Pervasives,AttrProxy,Html,Utils,UIBase,MyVars,Abbrev,Fresh,Dictionary,Object,CheckedInput,Numeric,HashSet,Seq,TemplateInitializer,EventTarget,Node,JS,Attrs,DomUtility,DictionaryUtil,Enumerator,T,SC$2,WindowOrWorkerGlobalScope,Docs,DateUtil,SC$3,DocElemNode,CharacterData,Storage,Elt,Prepare,Slice,KeyCollection,An,Settings,Mailbox,Array,Attrs$1,Dyn,ArrayStorage,AttrModule,List$1,T$1,Strings,Updates,ValueCollection,Docs$1,RunState,NodeSet,Concurrency,Anims,SC$4,Queue,HashSetUtil,BindVar,SC$5,SC$6,AppendList,SC$7,DynamicAttrNode,Scheduler,Easing,AsyncBody,SC$8,CT,HashSet$1,String,CancellationTokenSource,DomNodes,Char,Error,OperationCanceledException,Lazy,SC$9,LazyExtensionsProxy,LazyRecord,ReactDOM,IntelliFactory,Runtime$1,React$2,Date,console,Math;
+ var Global,SPA,Client,WebSharper,Obj,UI,Var$1,Operators,Templating,Runtime,Server,TemplateInstance,Arrays,ProviderBuilder,ListModel,Unchecked,SPA_Templates,Handler,Var,ReactHook,React,HelloWorld,React$1,ReactModule,View,ConcreteVar,Snap,System,Guid,Collections,List,SC$1,Client$1,Templates,Doc,JavaScript,Pervasives,AttrProxy,Html,Utils,UIBase,MyVars,DatePicker$1,DatePickerLibrary,ReactDatePicker,Abbrev,Fresh,Dictionary,Object,CheckedInput,Numeric,HashSet,Seq,TemplateInitializer,EventTarget,Node,JS,Attrs,DomUtility,DictionaryUtil,Enumerator,T,SC$2,WindowOrWorkerGlobalScope,Docs,DateUtil,SC$3,DocElemNode,CharacterData,Storage,Elt,Prepare,Slice,KeyCollection,An,Settings,Mailbox,Array,Attrs$1,Dyn,ArrayStorage,AttrModule,List$1,T$1,Strings,Updates,ValueCollection,Docs$1,RunState,NodeSet,Concurrency,Anims,SC$4,Queue,HashSetUtil,BindVar,SC$5,SC$6,AppendList,SC$7,DynamicAttrNode,Scheduler,Easing,AsyncBody,SC$8,CT,HashSet$1,String,CancellationTokenSource,DomNodes,Char,Error,OperationCanceledException,Lazy,SC$9,LazyExtensionsProxy,LazyRecord,ReactDOM,IntelliFactory,Runtime$1,React$2,Date,console,Math;
  Global=self;
  SPA=Global.SPA=Global.SPA||{};
  Client=SPA.Client=SPA.Client||{};
@@ -409,6 +410,9 @@ if(!p.closest){p.closest=function(s){var e=this;while(e&&e.nodeType==1){if(e.mat
  Utils=WebSharper.Utils=WebSharper.Utils||{};
  UIBase=Global.UIBase=Global.UIBase||{};
  MyVars=UIBase.MyVars=UIBase.MyVars||{};
+ DatePicker$1=Global.DatePicker=Global.DatePicker||{};
+ DatePickerLibrary=DatePicker$1.DatePickerLibrary=DatePicker$1.DatePickerLibrary||{};
+ ReactDatePicker=DatePickerLibrary.ReactDatePicker=DatePickerLibrary.ReactDatePicker||{};
  Abbrev=UI.Abbrev=UI.Abbrev||{};
  Fresh=Abbrev.Fresh=Abbrev.Fresh||{};
  Dictionary=Collections.Dictionary=Collections.Dictionary||{};
@@ -974,21 +978,133 @@ if(!p.closest){p.closest=function(s){var e=this;while(e&&e.nodeType==1){if(e.mat
  {
   return React$2.createElement(f,props);
  };
+ 
  React.set_setCount=function($1)
  {
   SC$1.$cctor();
   SC$1.setCount=$1;
  };
- HelloWorld.Example=function()
+ 
+ HelloWorld.Example= function ()
  {
   var p,setCount,count,p$1,c,myDate,datePicker;
   p=React$2.useState(0);
   setCount=p[1];
-  count=p[0];
-  p$1=React$2.useState(new Global.Date((c=Date.now(),DateUtil.DatePortion(c))));
+  count=p[0]; //https://github.com/Hacker0x01/react-datepicker/issues/1120#issuecomment-359922028
+  p$1=React$2.useState(moment(new Global.Date((c=Date.now(),DateUtil.DatePortion(c)))));
   myDate=p$1[0];
-  datePicker=React$2.createElement("DatePicker",{
-   selected:myDate,
+  
+  //.then( dp =>
+            !function(e) {
+                function t(t) {
+                    for (var n, l, f = t[0], i = t[1], a = t[2], p = 0, s = []; p < f.length; p++)
+                        l = f[p],
+                        Object.prototype.hasOwnProperty.call(o, l) && o[l] && s.push(o[l][0]),
+                        o[l] = 0;
+                    for (n in i)
+                        Object.prototype.hasOwnProperty.call(i, n) && (e[n] = i[n]);
+                    for (c && c(t); s.length; )
+                        s.shift()();
+                    return u.push.apply(u, a || []),
+                    r()
+                }
+                function r() {
+                    for (var e, t = 0; t < u.length; t++) {
+                        for (var r = u[t], n = !0, f = 1; f < r.length; f++) {
+                            var i = r[f];
+                            0 !== o[i] && (n = !1)
+                        }
+                        n && (u.splice(t--, 1),
+                        e = l(l.s = r[0]))
+                    }
+                    return e
+                }
+                var n = {}
+                  , o = {
+                    1: 0
+                }
+                  , u = [];
+                function l(t) {
+                    if (n[t])
+                        return n[t].exports;
+                    var r = n[t] = {
+                        i: t,
+                        l: !1,
+                        exports: {}
+                    };
+                    return e[t].call(r.exports, r, r.exports, l),
+                    r.l = !0,
+                    r.exports
+                }
+                l.m = e,
+                l.c = n,
+                l.d = function(e, t, r) {
+                    l.o(e, t) || Object.defineProperty(e, t, {
+                        enumerable: !0,
+                        get: r
+                    })
+                }
+                ,
+                l.r = function(e) {
+                    "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, {
+                        value: "Module"
+                    }),
+                    Object.defineProperty(e, "__esModule", {
+                        value: !0
+                    })
+                }
+                ,
+                l.t = function(e, t) {
+                    if (1 & t && (e = l(e)),
+                    8 & t)
+                        return e;
+                    if (4 & t && "object" == typeof e && e && e.__esModule)
+                        return e;
+                    var r = Object.create(null);
+                    if (l.r(r),
+                    Object.defineProperty(r, "default", {
+                        enumerable: !0,
+                        value: e
+                    }),
+                    2 & t && "string" != typeof e)
+                        for (var n in e)
+                            l.d(r, n, function(t) {
+                                return e[t]
+                            }
+                            .bind(null, n));
+                    return r
+                }
+                ,
+                l.n = function(e) {
+                    var t = e && e.__esModule ? function() {
+                        return e.default
+                    }
+                    : function() {
+                        return e
+                    }
+                    ;
+                    return l.d(t, "a", t),
+                    t
+                }
+                ,
+                l.o = function(e, t) {
+                    return Object.prototype.hasOwnProperty.call(e, t)
+                }
+                ,
+                l.p = "/Content/";
+                var f = webpackJsonpcontent = webpackJsonpcontent || []
+                  , i = f.push.bind(f);
+                f.push = t,
+                f = f.slice();
+                for (var a = 0; a < f.length; a++)
+                    t(f[a]);
+                var c = i;
+                r()
+            }([])
+  
+
+  datePicker=React$2.createElement(DatePicker.default,{
+   selected:myDate, //https://github.com/Hacker0x01/react-datepicker/issues/1120#issuecomment-359922028
    onChange:p$1[1]
   });
   React.set_setCount(setCount);
@@ -997,8 +1113,8 @@ if(!p.closest){p.closest=function(s){var e=this;while(e&&e.nodeType==1){if(e.mat
    return function($2)
    {
     return $1("You selected "+Utils.toSafe($2)+" date");
-   };
-  }))(myDate.toDateString())),React$2.createElement("p",null,(Html.textf(function($1)
+   }; //https://stackoverflow.com/a/26744045/11323942
+  }))(myDate.toDate().toDateString())),React$2.createElement("p",null,(Html.textf(function($1)
   {
    return function($2)
    {
@@ -2376,6 +2492,11 @@ if(!p.closest){p.closest=function(s){var e=this;while(e&&e.nodeType==1){if(e.mat
   SC$1.$cctor();
   return SC$1.count;
  };
+ ReactDatePicker=DatePickerLibrary.ReactDatePicker=Runtime$1.Class({},Obj,ReactDatePicker);
+ ReactDatePicker.New=Runtime$1.Ctor(function()
+ {
+  Obj.New.call(this);
+ },ReactDatePicker);
  Fresh.Int=function()
  {
   Fresh.set_counter(Fresh.counter()+1);
