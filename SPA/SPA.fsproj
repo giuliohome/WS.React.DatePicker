@@ -79,6 +79,9 @@
     <Reference Include="WebSharper.Main">
       <HintPath>..\packages\WebSharper.4.6.8.411\lib\net461\WebSharper.Main.dll</HintPath>
     </Reference>
+    <Reference Include="WebSharper.Moment">
+      <HintPath>..\packages\WebSharper.Moment.4.6.0.161\lib\net461\WebSharper.Moment.dll</HintPath>
+    </Reference>
     <Reference Include="WebSharper.React">
       <HintPath>..\packages\WebSharper.React.4.6.0.163\lib\net461\WebSharper.React.dll</HintPath>
     </Reference>
@@ -113,13 +116,6 @@
     <Compile Include="Global.asax.fs" />
     <None Include="wsconfig.json" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DatePicker\DatePicker.fsproj">
-      <Name>DatePicker</Name>
-      <Project>{795287ee-ea5d-46f0-a5ab-ed43013c9d3a}</Project>
-      <Private>True</Private>
-    </ProjectReference>
   </ItemGroup>
   <Target Name="IncludeContent" BeforeTargets="Compile">
     <ItemGroup>

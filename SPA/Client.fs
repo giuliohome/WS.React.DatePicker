@@ -20,6 +20,7 @@ namespace ReactHook
     open WebSharper.React
     open WebSharper.React.Html
     open System
+    open WebSharper.Moment
     
     [<JavaScript>]
     module React =
@@ -37,8 +38,8 @@ namespace ReactHook
     type DatePickerProps =
         {
             //className: string;
-            selected: Date;
-            onChange: Date -> unit;
+            selected: Moment.Moment;
+            onChange: Moment -> unit;
         }
     
     [<JavaScript>]
@@ -46,39 +47,25 @@ namespace ReactHook
         open System
         open WebSharper.React.Bindings
         open WebSharper.React.Html
-        open DatePicker.DatePickerLibrary
 
-        //[<Inline>]
-        //let importTestJsAll : obj = JS.ImportAll "/modules/test.js"
-        // translates to: import * as test from "/modules/test.js"
 
-        //[<Inline>]
-        //let DatePicker : Func<obj,React.Element> = 
-        //    JS.Import("DatePicker", "https://unpkg.com/react-datepicker@0.53.0/dist/react-datepicker.js")
-        // translates to: import { testExport } from "/modules/test.js"
-
-        //[<Inline>]
-        //let importTestJsDefault : obj = JS.ImportDefault "/modules/test.js"
-        // translates to: import def$test from "/modules/test.js"
-        
         let Example () =
             
             let count, setCount = React.UseState 0
-            let myDate, setMyDate = React.UseState DateTime.Today.JS
             
-            let datePickerImport = "DatePicker" // (new ReactDatePicker()).DatePicker
-           
+            let myDate, setMyDate = React.UseState (Moment(DateTime.Today.JS))
+            let importDatePicker = JS.Eval("DatePicker.default") :?> React.Class 
             let datePicker =
-                React.CreateElement ( datePickerImport, //"DatePicker", //"react-datepicker" , 
+                React.CreateElement ( importDatePicker , 
                             {
                                 selected = myDate 
                                 onChange = setMyDate 
-                            })
+                            }, [||])
             
             React.setCount <- setCount
             div [] [
                 datePicker
-                p [] [Html.textf "You selected %s date" (myDate.ToDateString())]
+                p [] [Html.textf "You selected %s date" (myDate.ToDate().ToDateString())]
                 p [] [Html.textf "You clicked %i times" count]
                 button [on.click (fun _ -> 
                             setCount (count + 1)
