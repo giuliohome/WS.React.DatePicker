@@ -1,0 +1,2 @@
+(this.webpackJsonpcontent_npm=this.webpackJsonpcontent_npm||[]).push([[0],{50:function(n,e,t){n.exports=t(51)},51:function(n,e,t){"use strict";t.r(e),t.d(e,"ImportedComponent",(function(){return i}));var o=t(3),r=t.n(o),c=t(37),p=t.n(c),i=(t(53),{MyDatePicker:function(n){return console.log("props",n),r.a.createElement(p.a,n)}});window.MyDatePicker=function(n){return console.log("props from window.MyDatePicker",n),r.a.createElement(p.a,n)}}},[[50,1,2]]]);
+//# sourceMappingURL=main.b075c560.chunk.js.map

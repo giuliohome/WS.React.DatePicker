@@ -23,7 +23,7 @@ namespace ReactHook
     open WebSharper.Moment
     
     [<JavaScript>]
-    module React =
+    module WrapReact =
         open System
         open WebSharper.React.Bindings
         
@@ -38,8 +38,9 @@ namespace ReactHook
     type DatePickerProps =
         {
             //className: string;
-            selected: Moment.Moment;
-            onChange: Moment -> unit;
+            selected: Date;
+            onChange: Date -> unit;
+            showTimeSelect: bool
         }
     
     [<JavaScript>]
@@ -47,25 +48,28 @@ namespace ReactHook
         open System
         open WebSharper.React.Bindings
         open WebSharper.React.Html
+        open WebSharper.JavaScript
 
 
         let Example () =
             
-            let count, setCount = React.UseState 0
+            let count, setCount = WrapReact.UseState 0
             
-            let myDate, setMyDate = React.UseState (Moment(DateTime.Today.JS))
-            let importDatePicker = JS.Eval("DatePicker.default") :?> React.Class 
-            let datePicker =
-                React.CreateElement ( importDatePicker , 
+            let myDate, setMyDate = WrapReact.UseState (DateTime.Today.JS)
+            let importDatePicker = JS.Eval("window.MyDatePicker") :?> React.Class 
+            let propDP = 
                             {
                                 selected = myDate 
-                                onChange = setMyDate 
-                            }, [||])
-            
-            React.setCount <- setCount
+                                onChange = setMyDate
+                                showTimeSelect = true
+                            }
+            let datePicker =
+                React.CreateElement( importDatePicker, propDP)
+            WrapReact.setCount <- setCount
             div [] [
+                
                 datePicker
-                p [] [Html.textf "You selected %s date" (myDate.ToDate().ToDateString())]
+                p [] [Html.textf "You selected %s date %s time" (myDate.ToDateString()) (myDate.ToTimeString())]
                 p [] [Html.textf "You clicked %i times" count]
                 button [on.click (fun _ -> 
                             setCount (count + 1)
@@ -91,32 +95,12 @@ module Client =
     // The templates are loaded from the DOM, so you just can edit index.html
     // and refresh your browser, no need to recompile unless you add or remove holes.
     type IndexTemplate = Template<"index.html", ClientLoad.FromDocument>
-
-    let People =
-        ListModel.FromSeq [
-            "John"
-            "Paul"
-        ]
-
+    
     let count = UIBase.MyVars.count
 
     [<SPAEntryPoint>]
     let Main () =
-        let newName = Var.Create ""
 
-        IndexTemplate.Main()
-            .ListContainer(
-                People.View.DocSeqCached(fun (name: string) ->
-                    IndexTemplate.ListItem().Name(name).Doc()
-                )
-            )
-            .Name(newName)
-            .Add(fun _ ->
-                People.Add(newName.Value)
-                newName.Value <- ""
-            )
-            .Doc()
-        |> Doc.RunById "main"
         
 
         let welcome = p [] [
@@ -130,14 +114,14 @@ module Client =
                    on.click (fun _ _ ->
                        let next = count.Value + 1 
                        count.Set(next)
-                       ReactHook.React.setCount next 
+                       ReactHook.WrapReact.setCount next 
                        )
                ] [
                    text "W# UI Click Me!"
                ]
                div [
                    on.afterRender ( fun el ->
-                           ReactHook.React.FunctionComponent ReactHook.HelloWorld.Example ()
+                           ReactHook.WrapReact.FunctionComponent ReactHook.HelloWorld.Example ()
                            |> WebSharper.React.React.Mount el
                        )
                    ] []

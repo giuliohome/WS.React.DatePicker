@@ -4,10 +4,13 @@
     <title>SPA</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link href="https://unpkg.com/react-datepicker@0.53.0/dist/react-datepicker.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/react-datepicker/3.2.2/react-datepicker.css" integrity="sha512-GC0jPkBpLCxkQybeKQE+FxyHXJuYKf6DM8lvSoK9yWtLFZIUm0OYEUjLdgJ6FiT/Uaj1HbIas9C4663IJhVzWg==" crossorigin="anonymous" />
 
     <link rel="stylesheet" type="text/css" href="Content/SPA.css" />
+
+
+
+
     <style>
         /* Don't show the not-yet-loaded templates */
         [ws-template], [ws-children-template] {
@@ -15,27 +18,30 @@
         }
     </style>
 
-    <script type="text/javascript" src="Content/SPA.head.js"></script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>My list of unique people</h1>
-    <div id="main" ws-children-template="Main">
-        <ul ws-hole="ListContainer">
-            <li ws-template="ListItem">${Name}</li>
-        </ul>
-        <div>
-            <input ws-var="Name" placeholder="Name" />
-            <button ws-onclick="Add">Add</button>
-            <div>You are about to add: ${Name}</div>
-        </div>
-    </div>
+    <div id="main"></div>
+
     <div id="mainUI"></div>
 
-    <script src="/Content/SPA.min.js"></script>
+    <div id="root"></div>
+    <script>!function(e){function t(t){for(var n,l,p=t[0],f=t[1],i=t[2],c=0,s=[];c<p.length;c++)l=p[c],Object.prototype.hasOwnProperty.call(o,l)&&o[l]&&s.push(o[l][0]),o[l]=0;for(n in f)Object.prototype.hasOwnProperty.call(f,n)&&(e[n]=f[n]);for(a&&a(t);s.length;)s.shift()();return u.push.apply(u,i||[]),r()}function r(){for(var e,t=0;t<u.length;t++){for(var r=u[t],n=!0,p=1;p<r.length;p++){var f=r[p];0!==o[f]&&(n=!1)}n&&(u.splice(t--,1),e=l(l.s=r[0]))}return e}var n={},o={1:0},u=[];function l(t){if(n[t])return n[t].exports;var r=n[t]={i:t,l:!1,exports:{}};return e[t].call(r.exports,r,r.exports,l),r.l=!0,r.exports}l.m=e,l.c=n,l.d=function(e,t,r){l.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},l.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},l.t=function(e,t){if(1&t&&(e=l(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(l.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var n in e)l.d(r,n,function(t){return e[t]}.bind(null,n));return r},l.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return l.d(t,"a",t),t},l.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},l.p="/";var p=this.webpackJsonpcontent_npm=this.webpackJsonpcontent_npm||[],f=p.push.bind(p);p.push=t,p=p.slice();for(var i=0;i<p.length;i++)t(p[i]);var a=f;r()}([])</script>
+    <script src="/static/js/2.a6e4c224.chunk.js"></script>
+    <script src="/static/js/main.b075c560.chunk.js"></script>
 
-    <script src="https://unpkg.com/moment@2.14.1/moment.js"></script>
-    <script src="https://unpkg.com/react-onclickoutside@6.9.0/dist/react-onclickoutside.min.js"></script>
-    <script src="https://unpkg.com/react-datepicker@0.53.0/dist/react-datepicker.js"></script>
+    <!--
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-popper/2.2.3/index.umd.min.js" integrity="sha512-x/ckHE4xAcOI6XRHRR1nQLZLd740ZOH3gh6ZMdHlMpGQiUKCFy1KCU1P3z+k+noeHRZVqh9V6g364IVboxArGw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/2.0.0-alpha0/date_fns.min.js" integrity="sha512-0kon+2zxkK5yhflwFqaTaIhLVDKGVH0YH/jm8P8Bab/4EOgC/n7gWyy7WE4EXrfPOVDeNdaebiAng0nsfeFd9A==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/classnames/2.2.6/index.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.7.2/prop-types.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/react-onclickoutside@6.9.0/dist/react-onclickoutside.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/react-datepicker@3.1.3/dist/react-datepicker.min.js" crossorigin="anonymous"></script>
+    -->
+    <script src="/Content/SPA.js" crossorigin="anonymous"></script>
+
 
 </body>
 </html>
